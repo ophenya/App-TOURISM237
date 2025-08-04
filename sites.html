@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez les plus beaux sites touristiques du Cameroun avec TOURISM237">
+  <title>Sites Touristiques - TOURISM237</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #f08b38;  /* Orange */
+      --secondary-color: #2FAB73; /* Vert */
+      --dark-color: #1A1A2E;     /* Bleu foncé */
+      --light-color: #F8F9FA;    /* Fond clair */
+      --text-color: #333333;     /* Texte principal */
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background-color: var(--light-color);
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: var(--dark-color) ;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      color: white ;
+      font-size: 1.5rem;
+    }
+    
+    .nav-link {
+      color: white(255, 255, 255, 0.8) ;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color:white
+      (247, 241, 241) ;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    
+   
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 10px 25px;
+      font-weight: 600;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e07d2b;
+      border-color: #e07d2b;
+    }
+    
+    
+    .banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/plage2.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+    
+    .banner-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .section-title {
+      font-weight: 700;
+      color: var(--dark-color);
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--primary-color);
+      bottom: -10px;
+      left: 0;
+    }
+    
+   
+    
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 30px;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .card-title {
+      font-weight: 600;
+      color: var(--dark-color);
+    }
+    
+    
+    .footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .footer-link {
+      color: #ADB5BD;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .banner-title {
+        font-size: 1.8rem;
+      }
+      
+      .card-img-top {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="bi bi-globe me-2"></i>TOURISM237</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="accueil.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="sites.html">Sites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hotels.html">Hôtels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vehicules.html">Véhicules</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="A-propos.html">À propos</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex">
+          <a class="btn btn-primary" href="connexion2.html">
+            <i class="bi bi-person-fill me-2"></i>Connexion
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+ 
+  <section class="banner">
+    <div class="container">
+      <h1 class="banner-title">VISITEZ LES PLUS BEAUX SITES TOURISTIQUES DU CAMEROUN</h1>
+      <a href="#" class="btn btn-primary btn-lg">COMMENCER L'EXPLORATION</a>
+    </div>
+  </section>
+
+  <!-- Sites Touristiques -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center section-title">Nos Sites Phares</h2>
+      
+      <div class="row">
+        <!-- Site 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/KRIBI.jpg" class="card-img-top" alt="Plage de Kribi">
+            <div class="card-body">
+              <h5 class="card-title">Plage de Kribi</h5>
+              <p class="card-text">L'une des plus belles plages du Cameroun avec son sable fin et ses eaux cristallines, idéale pour se détendre et profiter du soleil.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Site 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/CHUTE.jpg" class="card-img-top" alt="Chutes de la Lobé">
+            <div class="card-body">
+              <h5 class="card-title">Chutes de la Lobé</h5>
+              <p class="card-text">Uniques au monde, ces chutes qui se jettent directement dans l'océan offrent un spectacle naturel impressionnant.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Site 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/RIVA.jpg" class="card-img-top" alt="Rivières du Cameroun">
+            <div class="card-body">
+              <h5 class="card-title">Rivières du Cameroun</h5>
+              <p class="card-text">Découvrez les plus belles rivières du pays, idéales pour les activités nautiques et les paysages à couper le souffle.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Deuxième ligne de sites -->
+      <div class="row mt-4">
+        <!-- Site 4 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/reunification.jpg" class="card-img-top" alt="Monument de la Réunification">
+            <div class="card-body">
+              <h5 class="card-title">Monument de la Réunification</h5>
+              <p class="card-text">Symbole de l'unification du Cameroun, ce monument historique est un incontournable de Yaoundé.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Site 5 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/musee2.jpg" class="card-img-top" alt="Musée des Rois Bamoun">
+            <div class="card-body">
+              <h5 class="card-title">Musée des Rois Bamoun</h5>
+              <p class="card-text">Plongez dans l'histoire et la culture du peuple Bamoun à travers ce musée riche en artefacts traditionnels.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Site 6 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/plage3.jpg" class="card-img-top" alt="Lac Nyos">
+            <div class="card-body">
+              <h5 class="card-title">Lac Nyos</h5>
+              <p class="card-text">Un lac volcanique unique entouré de paysages magnifiques et d'une histoire géologique fascinante.</p>
+              <a href="#" class="btn btn-primary">Voir détails</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="footer-title">TOURISM237</h5>
+          <p>Votre guide ultime pour découvrir les merveilles du Cameroun. Nous nous engageons à vous offrir des expériences de voyage exceptionnelles.</p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="footer-title">Liens rapides</h5>
+          <a href="accueil.html" class="footer-link">Accueil</a>
+          <a href="sites.html" class="footer-link">Sites</a>
+          <a href="hotels.html" class="footer-link">Hôtels</a>
+          <a href="vehicules.html" class="footer-link">Véhicules</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="footer-title">Contact</h5>
+          <p><i class="bi bi-geo-alt me-2"></i> Emombo-Chapelle, Yaoundé, Cameroun</p>
+          <p><i class="bi bi-telephone me-2"></i> +237 640 94 40 68</p>
+          <p><i class="bi bi-envelope me-2"></i> kimayesarah96@gmail.com</p>
+        </div>
+      </div>
+      
+      <hr class="my-4">
+      
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 TOURISM237. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
