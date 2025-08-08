@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Page de connexion sécurisée à Mon Application">
+    <meta name="description" content="Réinitialisation de mot de passe | Mon Application">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Connexion Sécurisée | Mon Application</title>
+    <title>Mot de passe oublié | Mon Application</title>
     <style>
         :root {
             --orange-primary: #FF6B00;
@@ -35,13 +35,13 @@
             color: var(--text-color);
         }
 
-        .login-container {
+        .password-container {
             width: 100%;
             max-width: 520px;
             animation: fadeIn 0.5s ease-in-out;
         }
 
-        .login-card {
+        .password-card {
             border-radius: 16px;
             background-color: rgba(255, 255, 255, 0.97);
             box-shadow: 0 10px 30px rgba(255, 107, 0, 0.25);
@@ -51,24 +51,24 @@
             backdrop-filter: blur(5px);
         }
 
-        .login-card:hover {
+        .password-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(255, 107, 0, 0.35);
         }
 
-        .login-header {
+        .password-header {
             text-align: center;
             margin-bottom: 2.5rem;
             color: var(--orange-primary);
         }
 
-        .login-header h2 {
+        .password-header h2 {
             font-weight: 700;
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
 
-        .login-header p {
+        .password-header p {
             font-size: 0.95rem;
             color: var(--text-muted);
         }
@@ -107,7 +107,7 @@
             position: relative;
         }
 
-        .btn-login {
+        .btn-reset {
             background-color: var(--orange-primary);
             border: none;
             padding: 13px;
@@ -122,13 +122,13 @@
             margin-top: 0.5rem;
         }
 
-        .btn-login:hover {
+        .btn-reset:hover {
             background-color: var(--orange-dark);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
         }
 
-        .btn-login:active {
+        .btn-reset:active {
             transform: translateY(0);
         }
 
@@ -152,37 +152,27 @@
             font-size: 0.95rem;
         }
 
-        .form-check-input:checked {
-            background-color: var(--orange-primary);
-            border-color: var(--orange-primary);
-        }
-
-        .form-check-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
         .footer-text {
             font-size: 0.9rem;
             color: var(--text-muted);
         }
 
-        .password-toggle {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: var(--orange-light);
-            z-index: 5;
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #c3e6cb;
         }
 
         @media (max-width: 576px) {
-            .login-card {
+            .password-card {
                 padding: 2rem 1.5rem;
             }
             
-            .login-header h2 {
+            .password-header h2 {
                 font-size: 1.5rem;
             }
         }
@@ -192,7 +182,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-      
+       
         .btn-loading .spinner-border {
             width: 1.2rem;
             height: 1.2rem;
@@ -202,69 +192,52 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-header">
-                <h2 class="fw-bold mb-2"><i class="fas fa-sign-in-alt me-2"></i>Connexion Sécurisée</h2>
-                <p>Accédez à votre espace personnel</p>
+    <div class="password-container">
+        <div class="password-card">
+            <div class="password-header">
+                <h2 class="fw-bold mb-2"><i class="fas fa-key me-2"></i>Réinitialisation</h2>
+                <p>Entrez votre email pour réinitialiser votre mot de passe</p>
             </div>
             
-            <form id="loginForm" action="" method="post">
-                <div class="mb-3">
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle me-2"></i>
+                Un email de réinitialisation a été envoyé à votre adresse. Veuillez vérifier votre boîte de réception.
+            </div>
+            
+            <form id="resetForm" action="#" method="post">
+                <div class="mb-4">
                     <label for="email" class="form-label">Adresse Email</label>
                     <div class="input-group">
                         <i class="fas fa-envelope input-icon"></i>
                         <input type="email" class="form-control" id="email" name="email" required 
-                               placeholder="kimayesarah96@gmail.com" autocomplete="username">
+                               placeholder="kimayesarah96@gmail.com" autocomplete="email">
+                    </div>
+                    <div class="form-text">
+                        Un lien de réinitialisation vous sera envoyé par email.
                     </div>
                 </div>
                 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Mot de passe</label>
-                    <div class="input-group">
-                        <i class="fas fa-lock input-icon"></i>
-                        <input type="password" class="form-control" id="password" name="password" required 
-                               placeholder="Entrez votre mot de passe" autocomplete="current-password">
-                        <i class="fas fa-eye password-toggle" id="togglePassword"></i>
-                    </div>
-                    <div class="form-text text-end">
-                        <a href="pwd.html" class="link-orange">Mot de passe oublié ?</a>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                        <label class="form-check-label" for="remember">Maintenir la connexion</label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn btn-login" id="loginButton">
-                    <span class="button-text"><i class="fas fa-sign-in-alt me-2"></i>Se connecter</span>
+                <button type="submit" class="btn btn-reset" id="resetButton">
+                    <span class="button-text"><i class="fas fa-paper-plane me-2"></i>Envoyer le lien</span>
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
                 
                 <div class="text-center mt-4 pt-3 border-top">
-                    <p class="footer-text">Nouveau sur notre plateforme ? <a href="inscription2.html" class="link-orange fw-semibold">Créer un compte</a></p>
+                    <p class="footer-text">Vous vous souvenez de votre mot de passe ? <a href="connexion2.html" class="link-orange fw-semibold">Se connecter</a></p>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
     <script>
-        
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-        });
-
-       
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            const button = document.getElementById('loginButton');
+      
+        document.getElementById('resetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = document.getElementById('resetButton');
             const buttonText = button.querySelector('.button-text');
             const spinner = button.querySelector('.spinner-border');
             
@@ -273,18 +246,27 @@
             spinner.classList.remove('d-none');
             button.classList.add('btn-loading');
             
-           
+          
             setTimeout(() => {
                 button.disabled = false;
                 buttonText.classList.remove('d-none');
                 spinner.classList.add('d-none');
                 button.classList.remove('btn-loading');
+                
+               
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('resetForm').reset();
+                
+               
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
             }, 2000);
         });
 
        
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.login-card').style.opacity = '1';
+            document.querySelector('.password-card').style.opacity = '1';
         });
     </script>
 </body>
